@@ -30,7 +30,7 @@ func TestBinarySearch(t *testing.T) {
 			idx, err := binarySearch(items, 10)
 
 			assert.EqualError(t, errorNotFound, err.Error())
-			assert.Equal(t, idx, uint(0))
+			assert.Equal(t, uint(0), idx)
 		})
 		t.Run("not found 2", func(t *testing.T) {
 			items := []int{-8, -5, 0, 1, 230}
@@ -38,7 +38,7 @@ func TestBinarySearch(t *testing.T) {
 			idx, err := binarySearch(items, 231)
 
 			assert.EqualError(t, errorNotFound, err.Error())
-			assert.Equal(t, idx, uint(0))
+			assert.Equal(t, uint(0), idx)
 		})
 		t.Run("not found 3", func(t *testing.T) {
 			items := []int{1}
@@ -46,7 +46,7 @@ func TestBinarySearch(t *testing.T) {
 			idx, err := binarySearch(items, 2)
 
 			assert.EqualError(t, errorNotFound, err.Error())
-			assert.Equal(t, idx, uint(0))
+			assert.Equal(t, uint(0), idx)
 		})
 		t.Run("not found 4", func(t *testing.T) {
 			items := []int{10, 20, 30, 40, 50, 60, 70}
@@ -54,7 +54,7 @@ func TestBinarySearch(t *testing.T) {
 			idx, err := binarySearch(items, 11)
 
 			assert.EqualError(t, errorNotFound, err.Error())
-			assert.Equal(t, idx, uint(0))
+			assert.Equal(t, uint(0), idx)
 		})
 	})
 
@@ -66,7 +66,7 @@ func TestBinarySearch(t *testing.T) {
 			idx, err := binarySearch(items, -5)
 
 			assert.Nil(t, err)
-			assert.Equal(t, idx, uint(7))
+			assert.Equal(t, uint(7), idx)
 		})
 		t.Run("positive slice", func(t *testing.T) {
 			items := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
@@ -74,7 +74,7 @@ func TestBinarySearch(t *testing.T) {
 			idx, err := binarySearch(items, 2)
 
 			assert.Nil(t, err)
-			assert.Equal(t, idx, uint(2))
+			assert.Equal(t, uint(2), idx)
 		})
 		t.Run("mixed slice", func(t *testing.T) {
 			items := []int{-5, -4, -1, 1, 2, 5, 6, 7, 9, 11}
@@ -82,7 +82,7 @@ func TestBinarySearch(t *testing.T) {
 			idx, err := binarySearch(items, 5)
 
 			assert.Nil(t, err)
-			assert.Equal(t, idx, uint(5))
+			assert.Equal(t, uint(5), idx)
 		})
 		t.Run("right border", func(t *testing.T) {
 			items := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
@@ -90,7 +90,7 @@ func TestBinarySearch(t *testing.T) {
 			idx, err := binarySearch(items, 9)
 
 			assert.Nil(t, err)
-			assert.Equal(t, idx, uint(9))
+			assert.Equal(t, uint(9), idx)
 		})
 		t.Run("left border", func(t *testing.T) {
 			items := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
@@ -98,7 +98,7 @@ func TestBinarySearch(t *testing.T) {
 			idx, err := binarySearch(items, 0)
 
 			assert.Nil(t, err)
-			assert.Equal(t, idx, uint(0))
+			assert.Equal(t, uint(0), idx)
 		})
 		t.Run("one element", func(t *testing.T) {
 			items := []int{1}
@@ -106,7 +106,7 @@ func TestBinarySearch(t *testing.T) {
 			idx, err := binarySearch(items, 1)
 
 			assert.Nil(t, err)
-			assert.Equal(t, idx, uint(0))
+			assert.Equal(t, uint(0), idx)
 		})
 		t.Run("two elements", func(t *testing.T) {
 			items := []int{1, 2}
@@ -114,7 +114,7 @@ func TestBinarySearch(t *testing.T) {
 			idx, err := binarySearch(items, 2)
 
 			assert.Nil(t, err)
-			assert.Equal(t, idx, uint(1))
+			assert.Equal(t, uint(1), idx)
 		})
 	})
 }
