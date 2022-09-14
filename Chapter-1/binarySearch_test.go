@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestBinarySearch(t *testing.T) {
+func Test_BinarySearch(t *testing.T) {
 	t.Run("errors", func(t *testing.T) {
 		t.Parallel()
 		t.Run("slice is nil", func(t *testing.T) {

@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestSelectionSort(t *testing.T) {
+func Test_SelectionSort(t *testing.T) {
 	t.Run("errors", func(t *testing.T) {
 		t.Parallel()
 		t.Run("slice is nil", func(t *testing.T) {
@@ -63,13 +63,13 @@ func TestSelectionSort(t *testing.T) {
 			},
 		}
 
-		for _, tc := range cases {
-			t.Run(tc.name, func(t *testing.T) {
+		for _, cs := range cases {
+			t.Run(cs.name, func(t *testing.T) {
 
-				sortedItems, err := selectionSort(tc.arg)
+				sortedItems, err := selectionSort(cs.arg)
 
 				assert.Nil(t, err)
-				assert.Equal(t, true, slices.Equal(tc.want, sortedItems))
+				assert.Equal(t, true, slices.Equal(cs.want, sortedItems))
 			})
 		}
 	})
