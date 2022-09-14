@@ -6,7 +6,10 @@ import (
 
 func main() {
 	list := []int{4, 8, 6, 2, 1, 0, 7, 5, 3, -2, 1, 9}
-	fmt.Printf("%+v", mergeSort(list))
+	fmt.Printf("%+v\n\n", mergeSort(list))
+
+	list1 := []int{4, 8, 6, 2, 1, 0, 7, 5, 3, -2, 1, 9}
+	fmt.Printf("%+v", quickSort(list1))
 }
 
 func mergeSort(items []int) []int {
@@ -55,4 +58,29 @@ func mergeSort(items []int) []int {
 	}
 
 	return sortedItems
+}
+
+func quickSort(items []int) []int {
+	length := len(items)
+	if length < 2 {
+		return items
+	}
+
+	pivot := items[0]
+	leftSorted := make([]int, 0, 2)
+	rightSorted := make([]int, 0, 2)
+
+	for _, value := range items[1:] {
+		if value <= pivot {
+			leftSorted = append(leftSorted, value)
+		} else {
+			rightSorted = append(rightSorted, value)
+		}
+	}
+
+	return append(
+		append(
+			append([]int(nil), quickSort(leftSorted)...),
+			pivot), quickSort(rightSorted)...,
+	)
 }
