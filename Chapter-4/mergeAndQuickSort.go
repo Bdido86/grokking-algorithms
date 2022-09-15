@@ -80,7 +80,6 @@ func quickSort(items []int) []int {
 
 	return append(
 		append(
-			append([]int(nil), quickSort(leftSorted)...),
-			pivot), quickSort(rightSorted)...,
-	)
+			append([]int(nil), quickSort(leftSorted)...), pivot),
+		quickSort(rightSorted)...)
 }
