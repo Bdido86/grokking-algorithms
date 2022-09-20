@@ -118,3 +118,12 @@ func Test_BinarySearch(t *testing.T) {
 		})
 	})
 }
+
+// go test -bench=. -benchmem -benchtime=1000x
+func BenchmarkBinarySearch(b *testing.B) {
+	for i := 0; i <= b.N; i++ {
+		items := []int{-100, -45, -34, -33, -29, -20, -10, -5, -1}
+
+		_, _ = binarySearch(items, -5)
+	}
+}

@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/pkg/errors"
-	"math"
 )
 
 var (
@@ -24,7 +23,7 @@ func binarySearch(items []int, item int) (uint, error) {
 	low := 0
 	high := len(items) - 1
 	for low <= high {
-		mid := int(math.Floor(float64((low + high) / 2)))
+		mid := (low + high) / 2
 		found := items[mid]
 
 		if found == item {
